@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Henry Robison</title>
+<meta name="description" content="Henry Robison, marketing student and hospitality professional from Everett, Washington.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Layout: one dark column of denim-stitched panels. Hero with a monogram badge, then wins first, ORCA, work history, service, skills, contact. */
+:root {
+  --black: #080b0f;
+  --coal: #10151b;
+  --slate: #171e27;
+  --steel: #212b37;
+  --line: #2c3746;
+  --denim: #5b9de6;
+  --denim-deep: #2f6bb5;
+  --stitch: #4a7fbd;
+  --white: #f4f7fb;
+  --mute: #9aa6b6;
+  --font-display: "Alfa Slab One", "Rockwell", "Georgia", serif;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-label: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: radial-gradient(900px 520px at 88% -4%, rgba(91, 157, 230, 0.2), transparent 62%), radial-gradient(700px 400px at -5% 30%, rgba(47, 107, 181, 0.12), transparent 60%), var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 40px;
+  overflow-x: hidden;
+}
+.wrap { max-width: 1040px; margin: 0 auto; }
+a { color: var(--denim); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--white); }
+:focus-visible { outline: 2px solid var(--denim); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { text-wrap: balance; }
+
+.label {
+  font-family: var(--font-label);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  color: var(--mute);
+}
+.star { width: 14px; height: 14px; fill: currentColor; flex: none; }
+
+/* Nav */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-block: 22px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); }
+.brand .mono {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 0.95rem;
+  background: var(--denim-deep); color: var(--white);
+  outline: 1px dashed rgba(255, 255, 255, 0.55); outline-offset: -4px;
+}
+.brand span.name { font-family: var(--font-label); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.95rem; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.nav ul a {
+  font-family: var(--font-label); font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.14em; font-size: 0.82rem; color: var(--mute); text-decoration: none;
+  padding-block: 4px; border-bottom: 2px solid transparent;
+}
+.nav ul a:hover, .nav ul a.on { color: var(--white); border-bottom-color: var(--denim); }
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.7fr);
+  gap: 40px;
+  align-items: center;
+  padding-block: 48px 72px;
+}
+.hero .kicker { display: flex; align-items: center; gap: 10px; color: var(--denim); }
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.9rem, 9vw, 5.6rem);
+  line-height: 1;
+  letter-spacing: 0.005em;
+  margin-top: 16px;
+}
+.hero h1 em { font-style: normal; color: var(--denim); }
+.hero .lead { margin-top: 22px; font-size: 1.2rem; color: #d3dbe6; max-width: 36em; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-label); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+  font-size: 0.9rem; text-decoration: none;
+  padding: 12px 20px; border-radius: 6px;
+  border: 1px solid var(--denim); color: var(--white); background: transparent;
+  cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.btn.solid { background: var(--denim-deep); border-color: var(--denim-deep); }
+.btn:hover { background: var(--denim); border-color: var(--denim); color: var(--black); }
+
+.badge {
+  justify-self: center;
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, var(--steel), var(--coal) 70%);
+  border: 1px solid var(--line);
+  display: grid; place-items: center;
+  position: relative;
+}
+.badge::before {
+  content: ""; position: absolute; inset: 12px; border-radius: 50%;
+  border: 2px dashed var(--stitch);
+}
+
+.badge .inner { text-align: center; display: grid; gap: 8px; justify-items: center; }
+.badge .hr { font-family: var(--font-display); font-size: clamp(3rem, 8vw, 4.6rem); line-height: 1; color: var(--white); }
+.badge .star { width: 18px; height: 18px; color: var(--denim); }
+.badge .label { color: var(--denim); }
+
+/* Sections */
+section { padding-block: 56px; border-top: 1px solid var(--line); scroll-margin-top: 12px; }
+.sec-head { display: grid; gap: 12px; margin-bottom: 32px; max-width: 46em; }
+.sec-head .label { display: flex; align-items: center; gap: 10px; color: var(--denim); }
+.sec-head h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.1; }
+.sec-head p { color: var(--mute); font-size: 1.05rem; }
+
+.panel {
+  background: var(--slate);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px;
+  outline: 1px dashed rgba(74, 127, 189, 0.55);
+  outline-offset: -8px;
+  min-width: 0;
+}
+
+/* Wins */
+.wins { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.win.feature { grid-column: 1 / -1; background: linear-gradient(135deg, var(--steel), var(--slate) 70%); }
+.win .label { color: var(--denim); display: flex; align-items: center; gap: 8px; }
+.win h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; line-height: 1.2; margin-top: 12px; }
+.win.feature h3 { font-size: clamp(1.7rem, 4.5vw, 2.4rem); }
+.win p { margin-top: 10px; color: #cbd4e0; }
+.win .when { margin-top: 14px; font-family: var(--font-label); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.82rem; color: var(--mute); }
+
+/* ORCA */
+.orca { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.orca .story { display: grid; gap: 16px; color: #cbd4e0; }
+.orca .story p:first-child { font-size: 1.15rem; color: var(--white); }
+.facts { margin: 0; display: grid; gap: 0; }
+.facts div { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 14px; padding-block: 12px; border-bottom: 1px dashed var(--line); }
+.facts div:last-child { border-bottom: 0; }
+.facts dt { font-family: var(--font-label); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; font-size: 0.82rem; color: var(--denim); padding-top: 3px; }
+.facts dd { margin: 0; color: var(--white); }
+.orca .btn { margin-top: 8px; justify-self: start; }
+
+/* Experience */
+.jobs { display: grid; gap: 18px; }
+.job { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: 24px; }
+.job h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; line-height: 1.15; }
+.job h3 a { color: var(--white); text-decoration: none; border-bottom: 2px solid var(--denim); }
+.job h3 a:hover { color: var(--denim); }
+.job .role { margin-top: 10px; color: var(--denim); font-weight: 600; }
+.job .meta { margin-top: 6px; }
+.job .visit { margin-top: 16px; display: inline-block; font-family: var(--font-label); font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.85rem; }
+.job ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.job li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 10px; color: #cbd4e0; }
+.job li .star { margin-top: 7px; color: var(--denim); width: 12px; height: 12px; }
+.job li strong { color: var(--white); font-weight: 600; }
+
+/* Community */
+.community { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; }
+.community h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; }
+.community p { margin-top: 12px; color: #cbd4e0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chip { font-family: var(--font-label); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; font-size: 0.8rem; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--white); background: var(--coal); }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+.skill { background: var(--coal); border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; border-left: 4px solid var(--denim-deep); }
+.skill h3 { font-family: var(--font-label); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.05rem; }
+.skill p { margin-top: 6px; color: var(--mute); font-size: 0.98rem; }
+
+/* Contact */
+.contact { display: grid; gap: 18px; justify-items: start; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.email { font-family: var(--font-display); font-size: clamp(1.1rem, 4.2vw, 1.8rem); overflow-wrap: anywhere; color: var(--white); }
+.note { color: var(--mute); font-size: 0.92rem; min-height: 1.4em; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px 8px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; color: var(--mute); font-size: 0.92rem; }
+footer .label { color: var(--mute); }
+
+/* Work ethic */
+.statement { font-family: var(--font-display); font-size: clamp(1.4rem, 3.8vw, 2.2rem); line-height: 1.25; border-left: 4px solid var(--denim); padding-left: 20px; margin-bottom: 28px; max-width: 28em; text-wrap: balance; }
+
+/* Goal */
+.goal-panel { padding: 36px 30px; background: linear-gradient(135deg, var(--steel), var(--slate) 75%); }
+.goal-big { font-family: var(--font-display); font-size: clamp(3rem, 13vw, 7.5rem); line-height: 0.98; margin-top: 10px; }
+.goal-big em { font-style: normal; color: var(--denim); }
+.goal-text { margin-top: 20px; font-size: 1.15rem; color: #d3dbe6; max-width: 34em; }
+.path { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.path li { border-top: 3px solid var(--line); padding-top: 12px; min-width: 0; }
+.path li.now { border-top-color: var(--denim); }
+.path strong { display: block; font-weight: 600; margin-top: 4px; }
+.path li.now .label { color: var(--denim); }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .hero { grid-template-columns: minmax(0, 1fr); padding-block: 28px 48px; gap: 32px; }
+  .badge { width: min(70%, 220px); justify-self: start; order: -1; }
+  .orca, .job, .community { grid-template-columns: minmax(0, 1fr); }
+  .job { gap: 16px; }
+  section { padding-block: 40px; }
+  .panel { padding: 22px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="Henry Robison, top of page">
+      <span class="mono">HR</span>
+      <span class="name">Henry Robison</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#wins">Highlights</a></li>
+        <li><a href="#orca">ORCA</a></li>
+        <li><a href="#work">Experience</a></li>
+        <li><a href="#community">Service</a></li>
+        <li><a href="#ethic">Work ethic</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#goal">Goal</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <p class="label kicker">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>
+          Everett, Washington &middot; Marketing at WWU
+        </p>
+        <h1>Henry <em>Robison</em></h1>
+        <p class="lead">Marketing major at Western Washington University, already taking junior-level classes. I started college early through ORCA, a research-based program at Everett Community College, and I have worked the floor at three Everett restaurants since 2023.</p>
+        <div class="cta">
+          <a class="btn solid" href="#wins">See my highlights</a>
+          <a class="btn" href="#orca">What is ORCA?</a>
+          <a class="btn" href="https://www.linkedin.com/in/henrycrobison/" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+        </div>
+      </div>
+      <div class="badge" aria-hidden="true">
+        <div class="inner">
+          <span class="hr">HR</span>
+          <svg class="star" viewBox="0 0 24 24"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>
+          <span class="label">Everett &middot; WA</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="wins">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Highlights</p>
+        <h2>The short list, best first</h2>
+        <p>Recognition, leadership and education, ordered by how much I want you to see them.</p>
+      </div>
+      <div class="wins">
+        <article class="panel win feature">
+          <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Award</p>
+          <h3>Employee of the Month, Lombardi's</h3>
+          <p>Named Employee of the Month at Lombardi's in Everett while working as a busser and server assistant. The role is built on reliability during busy service, and that is what the award recognized.</p>
+          <p class="when">November 2024</p>
+        </article>
+        <article class="panel win">
+          <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Leadership</p>
+          <h3>Student Government Senate</h3>
+          <p>Senate member of the Associate Student Body at Everett Community College, taking part in student government decisions on campus.</p>
+          <p class="when">2025 fiscal year to present</p>
+        </article>
+        <article class="panel win">
+          <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Education</p>
+          <h3>Associate degree through ORCA</h3>
+          <p>College-level coursework at Everett Community College through the Ocean Research College Academy, a Running Start program built around real research. <a href="#orca">More on ORCA</a>.</p>
+          <p class="when">2024 to 2026 school years</p>
+        </article>
+        <article class="panel win">
+          <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Service</p>
+          <h3>Volunteer since 2022</h3>
+          <p>Years of steady volunteering at Renew Church in Lynnwood, from event setup to running live audio and slides.</p>
+          <p class="when">2022 to present</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="orca">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Where I started college</p>
+        <h2>Ocean Research College Academy</h2>
+        <p>ORCA is the early college program at Everett Community College that I attended while earning my associate degree.</p>
+      </div>
+      <div class="orca">
+        <div class="story">
+          <p>ORCA is a full-time Running Start program for high school juniors and seniors. Students take college classes together as a cohort, and the research is built into the coursework instead of sitting beside it.</p>
+          <p>The academy sits on the Everett waterfront at the Port of Everett. Students collect and analyze data on the health of Possession Sound, tracking water quality and the abundance and distribution of marine life. A research lab and a research vessel make that possible.</p>
+          <p>The program has a unique standing: EvCC describes it as the only program in the country where high school students conduct college-level original oceanography research. Students finish with an associate degree and a high school diploma, with college tuition covered through Running Start.</p>
+          <p>For me, ORCA meant learning to ask a question, gather evidence, and explain the result clearly. Those are the same habits I bring to marketing: test what works, trust the data, and communicate it well.</p>
+          <a class="btn solid" href="https://www.everettcc.edu/programs/math-science/orca" target="_blank" rel="noopener">Visit ORCA at EvCC &rarr;</a>
+        </div>
+        <aside class="panel" aria-label="ORCA at a glance">
+          <p class="label" style="margin-bottom:6px;color:var(--denim)">At a glance</p>
+          <dl class="facts">
+            <div><dt>Program</dt><dd>Full-time Running Start, Everett Community College</dd></div>
+            <div><dt>Format</dt><dd>Two-year cohort of juniors and seniors</dd></div>
+            <div><dt>Earn</dt><dd>Associate degree plus high school diploma</dd></div>
+            <div><dt>Location</dt><dd>Port of Everett waterfront</dd></div>
+            <div><dt>Research</dt><dd>Water quality and marine life in Possession Sound</dd></div>
+            <div><dt>Equipment</dt><dd>On-site research lab and research vessel</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Experience</p>
+        <h2>Three Everett restaurants, one habit</h2>
+        <p>Every job here comes down to the same thing: a guest gets a better experience because the team ran smoothly. Marketing starts with that experience too.</p>
+      </div>
+      <div class="jobs">
+        <article class="panel job">
+          <div>
+            <h3><a href="https://www.fishermanjacks.com/" target="_blank" rel="noopener">Fisherman Jack's</a></h3>
+            <p class="role">Busser, server, host, expo and food runner</p>
+            <p class="label meta">May 2025 &ndash; November 2025 &middot; Everett</p>
+            <a class="visit" href="https://www.fishermanjacks.com/" target="_blank" rel="noopener">Visit fishermanjacks.com &rarr;</a>
+          </div>
+          <ul>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Worked four front-of-house roles</strong> at an upscale Asian-seafood fusion restaurant, from greeting guests at the door to serving the table.</span></li>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Linked the kitchen and the dining room</strong> as expo and food runner, where speed and accuracy shape what the guest remembers.</span></li>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Made the first impression</strong> as host, setting the tone for every visit.</span></li>
+          </ul>
+        </article>
+
+        <article class="panel job">
+          <div>
+            <h3><a href="https://www.thenetshed.com" target="_blank" rel="noopener">The Net Shed</a></h3>
+            <p class="role">Server, food runner and busser</p>
+            <p class="label meta">March 2025 &ndash; August 2025 &middot; Everett</p>
+            <a class="visit" href="https://www.thenetshed.com" target="_blank" rel="noopener">Visit thenetshed.com &rarr;</a>
+          </div>
+          <ul>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Served guests at a seafood market and kitchen</strong> on the Port of Everett waterfront, a place built around fresh, regional seafood.</span></li>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Moved across three roles</strong> and covered whatever the floor needed during a rush.</span></li>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Learned a product people care about</strong>, which made it easier to recommend dishes with confidence.</span></li>
+          </ul>
+        </article>
+
+        <article class="panel job">
+          <div>
+            <h3><a href="http://www.lombardisitalian.com/" target="_blank" rel="noopener">Lombardi's</a></h3>
+            <p class="role">Busser and server assistant</p>
+            <p class="label meta">2023 &ndash; 2024 &middot; Everett</p>
+            <a class="visit" href="http://www.lombardisitalian.com/" target="_blank" rel="noopener">Visit lombardisitalian.com &rarr;</a>
+          </div>
+          <ul>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Earned Employee of the Month</strong> in November 2024 as part of the service team at an Italian restaurant on West Marine View Drive.</span></li>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Supported servers during service</strong> so tables turned smoothly and guests were never waiting.</span></li>
+            <li><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg><span><strong>Started my work history here</strong> and built the habits that carried into every job after.</span></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="community">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Service and leadership</p>
+        <h2>Showing up every week</h2>
+        <p>Volunteering is where I learned to run things behind the scenes so other people can enjoy them.</p>
+      </div>
+      <div class="panel community">
+        <div>
+          <h3>Renew Church, Lynnwood</h3>
+          <p class="label" style="margin-top:8px">Volunteer &middot; 2022 to present</p>
+          <p>I help with event logistics for church potluck meals: setting up folding tables and chairs, making coffee, arranging food, clearing dishes, washing linens, sweeping and vacuuming.</p>
+        </div>
+        <div>
+          <h3>AV booth</h3>
+          <p>I run the soundboard and set up ProPresenter slides, so the audio and visuals work live for everyone in the room. It is real-time technical work where mistakes show up right away.</p>
+          <div class="chips"><span class="chip">Soundboard</span><span class="chip">ProPresenter</span><span class="chip">Live events</span><span class="chip">Setup and teardown</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ethic">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Work ethic</p>
+        <h2>When I want it done, it gets done</h2>
+      </div>
+      <p class="statement">I make a plan, do the next task, and keep going until it is finished.</p>
+      <div class="wins">
+        <article class="panel win">
+          <p class="label">Consistency</p>
+          <h3>Working since 2023</h3>
+          <p>Restaurant work started in 2023, and I have stayed in it through college classes at EvCC. Three employers, four front-of-house roles in one season, and no gaps in showing up.</p>
+        </article>
+        <article class="panel win">
+          <p class="label">Recognition</p>
+          <h3>Noticed by my managers</h3>
+          <p>Lombardi's named me Employee of the Month in November 2024. That award comes from doing the job well every shift, not from one good night.</p>
+        </article>
+        <article class="panel win">
+          <p class="label">Dependability</p>
+          <h3>Showing up unasked</h3>
+          <p>I have volunteered at Renew Church since 2022, handling setup, cleanup and the AV booth. People count on the soundboard and slides working, so I make sure they do.</p>
+        </article>
+        <article class="panel win">
+          <p class="label">Initiative</p>
+          <h3>Taking on more</h3>
+          <p>On top of classes and work, I serve on the EvCC student government Senate. I take the next responsibility when it is offered.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Skills</p>
+        <h2>What I bring to a team</h2>
+      </div>
+      <div class="skills">
+        <div class="skill"><h3>Quick learner</h3><p>Picked up four front-of-house roles in a single season at Fisherman Jack's.</p></div>
+        <div class="skill"><h3>Adaptive thinker</h3><p>Comfortable switching stations and solving problems on a busy floor.</p></div>
+        <div class="skill"><h3>Good listener</h3><p>Hearing what a guest or teammate needs is the first step in getting it right.</p></div>
+        <div class="skill"><h3>Logical thinker</h3><p>Breaks problems into steps, from restaurant flow to live audio setups.</p></div>
+        <div class="skill"><h3>Respectful</h3><p>Works well with guests, coworkers and managers across very different roles.</p></div>
+        <div class="skill"><h3>Outgoing</h3><p>Easy to talk to, which suits hosting, serving and student government.</p></div>
+      </div>
+    </section>
+
+    <section id="goal">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>My goal</p>
+      </div>
+      <div class="panel goal-panel">
+        <p class="label" style="color:var(--denim)">One goal</p>
+        <p class="goal-big">Get it <em>done.</em></p>
+        <p class="goal-text">That is my only goal: finish what I start. I am working toward a marketing degree at Western Washington University and a career in business, and I will keep going until I get there.</p>
+        <ol class="path">
+          <li><span class="label">Done</span><strong>Running Start at ORCA</strong></li>
+          <li><span class="label">Done</span><strong>Associate degree, EvCC</strong></li>
+          <li class="now"><span class="label">Now</span><strong>Marketing degree, WWU</strong></li>
+          <li><span class="label">Next</span><strong>A career in marketing and business</strong></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sec-head">
+        <p class="label"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2 14.9,8.9 22,9.3 16.5,14 18.2,21 12,17.3 5.8,21 7.5,14 2,9.3 9.1,8.9"/></svg>Contact</p>
+        <h2>Let's talk</h2>
+        <p>I am looking for opportunities in marketing, business and hospitality. Email or LinkedIn is the best way to reach me.</p>
+      </div>
+      <div class="panel contact">
+        <div class="email-row">
+          <span class="email" id="email-text">henryrobison0710@gmail.com</span>
+          <button class="btn solid" id="copy-btn" type="button">Copy email</button>
+        </div>
+        <p class="note" id="copy-note" role="status"></p>
+        <a class="btn" href="https://www.linkedin.com/in/henrycrobison/" target="_blank" rel="noopener">Henry Robison on LinkedIn &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Designed and coded by Henry Robison</span>
+    <span class="label">Everett, Washington &middot; October 2026</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-btn');
+  var note = document.getElementById('copy-note');
+  var text = document.getElementById('email-text');
+  function select() {
+    try {
+      var r = document.createRange();
+      r.selectNodeContents(text);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+    } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    var value = text.textContent.trim();
+    function ok() { note.textContent = 'Email copied.'; }
+    function fail() { select(); note.textContent = 'Email selected. Press copy on your keyboard.'; }
+    try {
+      navigator.clipboard.writeText(value).then(ok, fail);
+    } catch (e) { fail(); }
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav ul a'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && map[e.target.id]) {
+          links.forEach(function (a) { a.classList.remove('on'); });
+          map[e.target.id].classList.add('on');
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
+  }
+})();
+</script>
+</body>
+</html>
